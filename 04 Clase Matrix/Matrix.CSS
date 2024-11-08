@@ -1,0 +1,63 @@
+/* Reset de estilos básicos */
+html, body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Estilo del cuerpo y fondo */
+body {
+    background-color: #20232a;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.main-container {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre el canvas y los botones */
+}
+
+/* Estilos para el contenedor de botones */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espacio entre cada botón */
+}
+
+/* Estilos para los botones */
+button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #20232a;
+    background-color: #61dafb;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #21a1f1;
+    transform: scale(1.05);
+}
+
+button:active {
+    background-color: #1a85c2;
+}
+
+/* Estilo del canvas */
+canvas {
+    border: 3px solid #61dafb;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    max-width: 90vw;
+    max-height: 90vh;
+}
