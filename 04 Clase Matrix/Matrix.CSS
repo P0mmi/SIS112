@@ -36,28 +36,59 @@ button {
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
-    color: #20232a;
-    background-color: #61dafb;
-    border: none;
+    color: white;
+    background: linear-gradient(45deg, rgb(34,193,195), rgb(253,187,45)); /* Gradiente animado */
+    border: 3px solid transparent; /* Borde transparente inicialmente */
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: all 0.3s ease;
+    background-size: 400% 400%;
+    animation: gradientAnimation 4s ease infinite; /* Animación del fondo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra sutil */
 }
 
+/* Animación del fondo de los botones */
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Efecto de hover: aumenta el tamaño, mantiene la animación, eleva y anima el borde */
 button:hover {
-    background-color: #21a1f1;
-    transform: scale(1.05);
+    transform: scale(1.1) translateY(-5px); /* Hace el botón más grande y lo eleva */
+    background: linear-gradient(45deg, rgb(253,45,85), rgb(34,193,195)); /* Cambio de color en el hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Sombra más pronunciada */
+    border: 3px solid rgb(253,45,85); /* Borde animado con el color del hover */
+    animation: gradientAnimation 4s ease infinite; /* Mantiene la animación de fondo */
 }
 
+/* Efecto de click */
 button:active {
     background-color: #1a85c2;
+    transform: scale(1.05) translateY(2px); /* Efecto de presionar el botón */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); /* Sombra más ligera */
+    border: 3px solid #1a85c2; /* Borde al presionar el botón */
 }
 
 /* Estilo del canvas */
 canvas {
-    border: 3px solid #61dafb;
+    border: 5px solid transparent;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
     max-width: 90vw;
     max-height: 90vh;
+    transition: all 0.3s ease; /* Transición suave */
+}
+
+/* Animación del borde del canvas */
+canvas:hover {
+    border: 5px solid rgb(253,45,85); /* Cambio de color del borde al pasar el cursor */
+    box-shadow: 0px 0px 20px rgb(253,45,85); /* Sombra más pronunciada */
 }

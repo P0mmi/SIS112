@@ -23,7 +23,7 @@ class Matriz {
     }
 
     // Ejemplo 1: Patrón Aleatorio
-    llenarMatrizAleatorio() {
+   llenarMatrizAleatorio() {
         this.vaciarMatriz();
         for (let i = 0; i < this.filas; i++) {
             for (let j = 0; j < this.columnas; j++) {
@@ -103,7 +103,6 @@ class Matriz {
     }
 
 
-    // Ejemplo 3: Patrón de Bordes
     llenarMatrizBordes() {
         this.vaciarMatriz();
         // Recorremos cada fila de la matriz
@@ -114,7 +113,7 @@ class Matriz {
                 // o en la primera o última columna (j === 0 o j === this.columnas - 1),
                 // estamos en el borde de la matriz y asignamos 2 en esa posición.
                 if (i === 0 || i === this.filas - 1 || j === 0 || j === this.columnas - 1) {
-                    this.matriz[i][j] = 2;
+                    this.matriz[i][j] = 1;
                 } else {
                     // Si no estamos en el borde, asignamos 0 en el interior.
                     this.matriz[i][j] = 0;
@@ -289,6 +288,80 @@ class Matriz {
             }
         }
     }
+
+
+
+    //EJERCICIOS DEL PRACTICO 
+    //Ejercicio 1: Cuadrado Relleno
+    CuadradoRelleno() {
+        this.vaciarMatriz();
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                this.matriz[i][j] = 1;
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    //Ejericio 2: Marco interno
+    MarcoInterno(){
+        this.vaciarMatriz();
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                if (i === 0 || i === this.filas - 1 || j === 0 || j === this.columnas - 1) {
+                    this.matriz[i][j] = 0;
+                } else {
+                    this.matriz[i][j] = 1;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    //Ejercicio 3: Cruces
+    Cruces(){
+        this.vaciarMatriz();
+        const mitadCol = Math.floor(this.columnas / 2);
+        const mitadFilas = Math.floor(this.filas / 2);
+
+        for (let i = 0; i < this.filas; i++) {
+            for (let j = 0; j < this.columnas; j++) {
+                if (j === mitadCol) {
+                    this.matriz[i][j] = 1;
+                }
+                if (i === mitadFilas) {
+                    this.matriz[i][j] = 1;
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    //Ejercicio 4: Bordes y Diagonales 
+    BordesYDiagonales(){
+        this.vaciarMatriz();
+        for (let i = 0; i < this.filas; i++) {
+            this.matriz[i][0] = 1; //Para el borde Izquierdo
+            this.matriz[i][this.columnas - 1] = 1; //Para el borde derecho
+            for (let j = 0; j < this.columnas; j++) {
+                this.matriz[0][j] = 1; //Para el borde de arriba
+                this.matriz[this.filas - 1][j] = 1; //Para el borde de abajo 
+                for (let i = 2; i <= 6; i++) {
+                    this.matriz[i][i] = 2;//Diagonal 
+                    this.matriz[i][this.columnas - 1 - i] = 2; //Diagonal inversa
+                }
+            }
+        }
+        this.dibujarMatriz();
+    }
+
+    //Ejercicio 5: Bandera
+    Bandera(){
+        
+    }
+
+
+
 
     // Método para dibujar una celda específica según su valor
     dibujarCelda(x, y, valor) {
