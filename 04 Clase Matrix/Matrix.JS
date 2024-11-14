@@ -356,9 +356,11 @@ class Matriz {
     }
 
     //Ejercicio 5: Bandera
-    Bandera(){
-        
-    }
+    Bandera(){ 
+        this.vaciarMatriz();
+    
+    
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 
 
 
