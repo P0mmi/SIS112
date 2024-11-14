@@ -37,7 +37,7 @@ button {
     font-size: 16px;
     font-weight: bold;
     color: white;
-    background: linear-gradient(45deg, rgb(34,193,195), rgb(253,187,45)); /* Gradiente animado */
+    background: linear-gradient(45deg, rgb(166, 174, 11), rgb(45, 13, 87)); /* Gradiente animado */
     border: 3px solid transparent; /* Borde transparente inicialmente */
     border-radius: 5px;
     cursor: pointer;
