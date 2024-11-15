@@ -447,12 +447,14 @@ class Matriz {
                     break;
                 case 3:
                     if (row - 1 < 0) {
-                        break; 
+                        break;     
                     }
                     row--;
                     break;
+            }
         }
-    }this.dibujarMatriz();        
+    
+        this.dibujarMatriz();           
     }
 
 //Ejericio 9: Triangulo Superior Derecho
@@ -632,24 +634,37 @@ class Matriz {
 //Ejercicio 20: Rombo de Esquinas
     RomboDeEsquinas(){
         this.vaciarMatriz();
-        const centro = Math.floor(this.columnas / 2);
-        const alturaPiramide = Math.floor(this.filas / 2);
-        for (let i = 0; i < alturaPiramide; i++) {
-            const inicio = centro - i;
-            const fin = centro + i;
-            for (let j = inicio; j <= fin; j++) {
-                this.matriz[i][j] = 1; 
-            }
+        const tamRombo = 3; // Tamaño del rombo desde la esquina hacia el centro
+    // Dibuja rombo en la esquina superior izquierda
+    for (let i = 0; i <= tamRombo; i++) {
+        for (let j = 0; j <= tamRombo - i; j++) {
+            this.matriz[i][j] = 1;
+            this.matriz[j][i] = 1;
         }
-            for (let i = 0; i < alturaPiramide; i++) {
-            const inicio = centro - i;
-            const fin = centro + i;
-            for (let j = inicio; j <= fin; j++) {
-                this.matriz[this.filas - 1 - i][j] = 0; 
-            }
+    }
+    // Dibuja rombo en la esquina superior derecha
+    for (let i = 0; i <= tamRombo; i++) {
+        for (let j = 0; j <= tamRombo - i; j++) {
+            this.matriz[i][this.columnas - 1 - j] = 1;
+            this.matriz[j][this.columnas - 1 - i] = 1;
         }
-    
-        this.dibujarMatriz();
+    }
+    // Dibuja rombo en la esquina inferior izquierda
+    for (let i = 0; i <= tamRombo; i++) {
+        for (let j = 0; j <= tamRombo - i; j++) {
+            this.matriz[this.filas - 1 - i][j] = 1;
+            this.matriz[this.filas - 1 - j][i] = 1;
+        }
+    }
+    // Dibuja rombo en la esquina inferior derecha
+    for (let i = 0; i <= tamRombo; i++) {
+        for (let j = 0; j <= tamRombo - i; j++) {
+            this.matriz[this.filas - 1 - i][this.columnas - 1 - j] = 1;
+            this.matriz[this.filas - 1 - j][this.columnas - 1 - i] = 1;
+        }
+    }
+    this.dibujarMatriz();
+
     }
 
 //Ejercicio 21: Relleno en Forma de Ajedrez
