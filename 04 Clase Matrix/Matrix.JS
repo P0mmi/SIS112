@@ -407,6 +407,52 @@ class Matriz {
 //Ejericio 8: Relleno en espiral
     RellenoEspiral() {
         this.vaciarMatriz();
+        let row = 0;
+        let col = 0;
+        let direction = 0; 
+        let steps = 1;
+        let stepCount = 0;
+    
+        for (let i = 0; i < this.columnas * this.filas; i++) {
+            this.matriz[row][col] = 1;
+    
+            stepCount++;
+    
+            if (stepCount === steps) {
+                stepCount = 0;
+                direction = (direction + 1) % 4;
+                if (direction % 2 === 0) {
+                    steps++;
+                }
+            }
+    
+            switch (direction) {
+                case 0: 
+                    if (col + 1 >= this.columnas) {
+                        break; 
+                    }
+                    col++;
+                    break;
+                case 1:
+                    if (row + 1 >= this.filas) {
+                        break;
+                    }
+                    row++;
+                    break;
+                case 2: 
+                    if (col - 1 < 0) {
+                        break; 
+                    }
+                    col--;
+                    break;
+                case 3:
+                    if (row - 1 < 0) {
+                        break; 
+                    }
+                    row--;
+                    break;
+        }
+    }this.dibujarMatriz();        
     }
 
 //Ejericio 9: Triangulo Superior Derecho
@@ -469,6 +515,29 @@ class Matriz {
 //Ejercicio 13: Rombos Concentricos
     RombosConcentricos(){
         this.vaciarMatriz();
+        const centro = Math.floor(this.columnas / 2);
+        const alturaPiramide = Math.floor(this.filas / 2);
+    
+        for (let i = 0; i < alturaPiramide; i++) {
+            const inicio = centro - i;
+            const fin = centro + i;
+    
+            for (let j = inicio; j <= fin; j++) {
+                this.matriz[i][j] = 1; 
+            }
+        }
+    
+        for (let i = 0; i < alturaPiramide; i++) {
+            const inicio = centro - i;
+            const fin = centro + i;
+    
+            for (let j = inicio; j <= fin; j++) {
+                this.matriz[this.filas - 1 - i][j] = 1; 
+            }
+        }
+    
+        this.dibujarMatriz();
+    
         
     }
 
@@ -563,16 +632,24 @@ class Matriz {
 //Ejercicio 20: Rombo de Esquinas
     RomboDeEsquinas(){
         this.vaciarMatriz();
-        let centroFila = Math.floor(this.filas / 2);
-        let centroColumna = Math.floor(this.columnas / 2);
-        for (let i = 0; i < this.filas; i++) {
-            for (let j = 0; j < this.columnas; j++) {
-                if ((i + j >= centroFila) && (i + j < this.filas - 1) || 
-                    (i + this.columnas - j >= centroColumna) && (i + this.columnas - j < this.columnas - 1)) {
-                    this.matriz[i][j] = 1;
-                }
+        const centro = Math.floor(this.columnas / 2);
+        const alturaPiramide = Math.floor(this.filas / 2);
+        for (let i = 0; i < alturaPiramide; i++) {
+            const inicio = centro - i;
+            const fin = centro + i;
+            for (let j = inicio; j <= fin; j++) {
+                this.matriz[i][j] = 1; 
             }
-        }this.dibujarMatriz();
+        }
+            for (let i = 0; i < alturaPiramide; i++) {
+            const inicio = centro - i;
+            const fin = centro + i;
+            for (let j = inicio; j <= fin; j++) {
+                this.matriz[this.filas - 1 - i][j] = 0; 
+            }
+        }
+    
+        this.dibujarMatriz();
     }
 
 //Ejercicio 21: Relleno en Forma de Ajedrez
