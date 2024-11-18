@@ -689,8 +689,6 @@ class Matriz {
             for (let j = 0; j < this.columnas; j++) {
                 if (j >= i && j < this.columnas - i || j >= this.columnas - i - 1 && j <= i) {
                     this.matriz[i][j] = 1;
-                } else {
-                    this.matriz[i][j] = 0;
                 }
             }
         }this.dibujarMatriz();
