@@ -1,24 +1,82 @@
-html, body {
-    box-sizing: border-box;
+@font-face {
+    font-family: 'PixelFont';
+    src: url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'); /* Fuente retro de Google Fonts */
+}
+
+body {
     margin: 0;
     padding: 0;
-}
-    
-body {
-    font-family: Arial, sans-serif;
-    background: #20232a;
-    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
+    background: url('tetris gif.gif') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'PixelFont', Arial, sans-serif;
+    color: #ffffff;
+    image-rendering: pixelated; /* Asegura el renderizado pixelado de imágenes y texto */
 }
-    
-#gameCanvas {
-    display: block;
-    border: 5px solid #38f151;
-    box-shadow: 0px 0px 10px rgba(49, 48, 48, 0.7);
-    background-color: #232a38;
+
+.container {
+    text-align: center;
+    background: black;
+    padding: 30px;
+    border: 2px solid #00ff00; /* Bordes verdes estilo retro */
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Sombra verde luminosa */
+    width: 90%;
+    max-width: 500px;
+}
+
+.container h1 {
+    font-size: 3em;
+    color: #00ff00; /* Texto verde brillante */
+    margin: 0 0 20px;
+    text-shadow: 2px 2px #004d00, 0 0 10px rgba(0, 255, 0, 0.8); /* Efecto retro luminoso */
+    font-family: 'PixelFont', 'Courier New', monospace; /* Fuente retro tipo pixel */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    text-transform: uppercase; /* Mayúsculas para un estilo aún más retro */
+}
+
+.container p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    font-family: 'PixelFont', 'Courier New', monospace;
+    letter-spacing: 1px;
+}
+
+.start-button {
+    display: inline-block;
+    font-size: 1.3em;
+    padding: 15px 40px;
+    background: #00ff00; /* Botón verde retro */
+    color: black; /* Texto negro dentro del botón */
+    border: 2px solid #004d00;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    text-shadow: none;
+    transition: transform 0.2s, background-color 0.3s;
+    font-family: 'PixelFont', 'Courier New', monospace;
+}
+
+.start-button:hover {
+    background: #004d00; /* Oscurece el botón al pasar el mouse */
+    color: #00ff00; /* Inversión de colores */
+    transform: scale(1.1); /* Efecto de escala */
+}
+
+.credits {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #808080; /* Gris tenue */
+    text-shadow: none;
+    opacity: 0.8;
+}
+
+.credits:hover {
+    opacity: 1;
+    color: #ffffff;
 }
