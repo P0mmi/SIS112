@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Game</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: url('https://example.com/background.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+
+        .start-screen {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .start-screen h1 {
+            font-size: 3em;
+            margin: 0 0 20px;
+        }
+
+        .start-screen button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #ff5722;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .start-screen button:hover {
+            background: #e64a19;
+        }
+    </style>
+</head>
+<body>
+    <div class="start-screen">
+        <h1>Tetris</h1>
+        <p>Ready to play the classic game?</p>
+        <button onclick="startGame()">Start Game</button>
+    </div>
+
+    <script>
+        function startGame() {
+            // Aquí puedes redirigir a otra página o cargar el juego
+            alert('Iniciando el juego de Tetris...');
+        }
+    </script>
+</body>
+</html>
