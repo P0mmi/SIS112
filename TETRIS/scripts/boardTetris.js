@@ -1,12 +1,11 @@
 class BoardTetris {
     constructor(canvas, rows, cols, cellSize, space) {
         this.canvas = canvas;
-        this.ctx = canvas.getContext('2d');
         this.rows = rows;
         this.cols = cols;
         this.cellSize = cellSize;
         this.space = space;
-        this.grid = this.createEmptyGrid(); 
+        this.matriz = this.createEmptyBoard();
     }
 
     isInside(row, col) {
@@ -14,8 +13,12 @@ class BoardTetris {
     }
 
     isEmpty(row, col) {
-        return this.isInside(row, col) && this.grid[row][col] === 0; 
+        if (!this.isInside(row, col)) {
+            return false;
+        }
+        return this.grid[row][col] === 0;
     }
+    
 
     isRowFull(row) {
         return this.grid[row].every(element => element !== 0);
@@ -51,16 +54,8 @@ class BoardTetris {
         return !(this.isRowEmpty(0)); // Cambié 'this.row' por 'this.rows'
     }
 
-    createEmptyGrid() {
-        const grid = [];
-        for (let row = 0; row < this.rows; row++) {
-            const rowArray = [];
-            for (let col = 0; col < this.cols; col++) {
-                rowArray.push(0); // Inicializa las celdas con 0
-            }
-            grid.push(rowArray);
-        }
-        return grid;
+    createEmptyBoard() {
+        return Array.from({ length: this.rows }, () => Array(this.cols).fill(0));
     }
 
     draw() {
@@ -78,10 +73,11 @@ class BoardTetris {
     }
 
     ObtenerCoordenada(column, row) {
-        return {
-            x: column * (this.cellSize + this.space),
-            y: row * (this.cellSize + this.space)
-        };
+        if (row < 0 || row >= this.rows || column < 0 || column >= this.cols) {
+            return null;  // Evita acceder a posiciones fuera del tablero
+        }
+        const x = column * this.cellSize;
+        const y = row * this.cellSize;
+        return { x, y };  // Devuelve las coordenadas X e Y basadas en la posición de la celda
     }
-    
 }
